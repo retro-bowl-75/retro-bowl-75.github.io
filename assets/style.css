@@ -1,0 +1,134 @@
+:root{
+  --thumb: 200px;  
+  --primary:#7366ED;
+  --bg:#0f0f12;
+  --text:#eaeaf0;
+  --muted:#9ca3af;
+  --card:#17171c;
+  --border:#26262d;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin-inline:auto;padding:16px}
+
+/* Notice bar */
+.notice{background:#121218;border:1px solid var(--border);border-radius:12px;padding:8px 12px;font-size:.92rem;color:var(--muted);margin-bottom:10px}
+
+/* Header */
+header.site{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#9d94ff)}
+.title{font-size:1.1rem;font-weight:700}
+.topnav{display:flex;gap:12px}
+.navlink{padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#121218}
+.navlink.active{outline:2px solid var(--primary)}
+
+/* Banner 970x250 responsive */
+.banner{display:flex;align-items:center;justify-content:center;background:#0b0b0f;border:1px solid var(--border);border-radius:18px;min-height:120px;padding:8px;margin-bottom:12px;overflow:hidden}
+.banner img{max-width:100%;height:auto;display:block}
+
+/* Sort bar */
+nav.sortbar{display:flex;align-items:center;gap:10px;margin:16px 0;border:1px solid var(--border);border-radius:14px;padding:8px 10px;background:#121218}
+.sortbar label{font-size:.9rem;color:var(--muted)}
+.sortbar select{background:#121218;color:var(--text);border:1px solid var(--border);padding:8px 10px;border-radius:10px}
+
+/* Headings */
+section h2{font-size:1.05rem;margin:18px 4px;color:#d7d7de}
+
+/* Grid — kare kutulara göre ayarlandı */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(var(--thumb), 1fr));
+  gap:12px;
+  justify-items:center;
+}
+
+/* (Önceki sabit kolonlu breakpoints gerekmiyor, istersen tutabilirsin)
+@media (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:768px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.grid{grid-template-columns:1fr}}
+*/
+
+/* Cards — kare olacak şekilde güncellendi */
+.card{
+  display:block;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  /* aspect-ratio:16/9;  <- KALDIRILDI */
+  aspect-ratio:1/1;             /* kare */
+  width:var(--thumb);           /* 150x150, istersen 200 yap */
+  max-width:100%;
+  position:relative;
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+/* Load more */
+.loadmore{display:block;width:100%;margin:16px 0;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--primary);color:white;font-weight:700;cursor:pointer}
+.loadmore[disabled]{opacity:.55;cursor:not-allowed}
+
+/* Footer */
+footer.site{margin-top:30px;padding:18px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.9rem}
+.footlinks{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.footlinks a{color:var(--muted)}
+
+/* Utilities */
+.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+.game-detail{display:flex;flex-direction:column;gap:16px;margin-top:12px}
+.game-stage{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.game-stage iframe{width:100%;height:100%;display:block}
+.game-info h1{font-size:1.3rem;margin:0;color:var(--text)}
+.game-info p{color:var(--muted);line-height:1.4}
+
+/* Detail / Stage */
+.crumbs{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;margin:6px 2px 10px}
+.detail-head{margin:8px 2px 12px}
+.detail-title{font-size:1.25rem;margin:0 0 6px}
+.detail-desc{color:#c9c9d3;margin:0}
+.stage{position:relative;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0b0b0f;margin:12px 0}
+.stage::before{content:"";display:block;aspect-ratio:16/9}
+.stage iframe,.stage img{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.more{margin-top:18px}
+
+/* ==== Stage + Banners (study page) ==== */
+.stage-layout{display:flex;gap:16px;align-items:flex-start;justify-content:center;margin:12px 0}
+.rail{width:300px;flex:0 0 300px}
+.rail img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:12px;background:#0b0b0f}
+
+.stage{position:relative;width:800px;height:600px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0b0b0f}
+.stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+
+/* Overlay curtain */
+.curtain{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:3;backdrop-filter:blur(1px)}
+.curtain.hidden{display:none}
+.start-btn{padding:12px 18px;border-radius:12px;border:1px solid var(--border);background:var(--primary);color:#fff;font-weight:700;cursor:pointer}
+
+/* Fullscreen */
+.fs-btn{position:absolute;top:8px;right:8px;z-index:4;border:1px solid var(--border);background:#121218;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
+
+/* Top overlay banner (970x250) */
+.top-banner{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:2;padding:6px;pointer-events:none}
+.top-banner img{max-width:100%;width:min(970px,100%);height:auto;display:block;opacity:.95}
+
+/* Random grid title spacing */
+.more{margin-top:18px}
+.desc{margin-top:16px}
+
+/* Responsive: hide rails, keep 4:3 ratio on small screens */
+@media (max-width:1280px){
+  .rail{display:none}
+}
+@media (max-width:860px){
+  .stage{width:100%;height:auto;aspect-ratio:4/3}
+  .stage iframe{height:100%}
+}
