@@ -33,6 +33,43 @@ var a0_0x74c4de=a0_0x3d09;function a0_0x3d09(_0x498559,_0x3627f6){_0x498559=_0x4
   <!-- JSON-LD -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Fruit Ninja","url":"https://retro-bowl-75.github.io/study-9.html","image":"https://retro-bowl-75.github.io/uploads/studies/4803090edd8d21ef.webp","description":"Fruit Ninja – Slice and Score Fruit Ninja is a fast and satisfying arcade game where your goal is simple: slice as many fruits as you can while avoiding bomb...","applicationCategory":"Game","operatingSystem":"Browser","genre":["Runner","Arcade"],"inLanguage":"en","publisher":{"@type":"Organization","name":"RETRO BOWL 75 1 Games","url":"https://retro-bowl-75.github.io/"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://retro-bowl-75.github.io/"},{"@type":"ListItem","position":2,"name":"Fruit Ninja","item":"https://retro-bowl-75.github.io/study-9.html"}]}</script>
+<script>
+	window.aiptag = window.aiptag || {cmd: []};
+	aiptag.cmd.display = aiptag.cmd.display || [];
+	aiptag.cmd.player = aiptag.cmd.player || [];
+	aiptag.cmp = {
+		show: true,
+		position: "centered", 
+		button: true,
+		buttonText: "Privacy settings",
+		buttonPosition: "bottom-left" 
+	}
+
+	aiptag.cmd.player.push(function() {
+		aiptag.adplayer = new aipPlayer({
+			AD_WIDTH: 960,
+			AD_HEIGHT: 540,
+			AD_DISPLAY: 'center', 
+			TRUSTED: true,
+			LOADING_TEXT: 'loading advertisement',
+			PREROLL_ELEM: function(){return document.getElementById('preroll')},
+			AIP_COMPLETE: function (state)  {
+				
+			}
+		});
+
+			});
+
+		function show_preroll() {
+		
+		if (typeof aiptag.adplayer !== 'undefined') {
+			aiptag.cmd.player.push(function() { aiptag.adplayer.startPreRoll(); });
+		} else {
+			
+		}
+	}
+		</script>
+	<script async src="//api.adinplay.com/libs/aiptag/pub/AGV/io-games.live/tag.min.js"></script>
 </head>
 <body>
 <div id="preroll"></div>
